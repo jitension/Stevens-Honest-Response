@@ -8,7 +8,8 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
-  Keyboard
+  Keyboard,
+  ScrollView
 } from 'react-native'
 
 
@@ -28,7 +29,7 @@ const emailIcon = require("../static/images/signup_email.png");
 const birthdayIcon = require("../static/images/signup_birthday.png");
 
 
-export default class SignupVriew extends Component {
+export default class SignupScreen extends Component {
   // the first method which runs upon DOM creation
   constructor() {
     super();
@@ -41,175 +42,181 @@ export default class SignupVriew extends Component {
   render() {
     return (
       <View style={[styles.container, styles.background]} resizeMode="cover">
-        <Image
-          source={background}
-          style={[styles.container, styles.bg]}
-          resizeMode="cover"
-        >
-          <View style={styles.headerContainer}>
+        <ScrollView
+          showsVerticalScrollIndicator={true}
+          automaticallyAdjustContentInsets={true}
+          keyboardDismissMode='interactive'
+          keyboardShouldPersistTaps="always">
+          <Image
+            source={background}
+            style={[styles.container, styles.bg]}
+            resizeMode="cover"
+          >
+            <View style={styles.headerContainer}>
 
-            <View style={styles.headerIconView}>
+              <View style={styles.headerIconView}>
 
-              {/* Back button */}
-              <TouchableOpacity
-                onPress={Actions.login}
-                style={styles.headerBackButtonView}>
-                <Image
-                  source={backIcon}
-                  style={styles.backButtonIcon}
-                  resizeMode="contain"
+                {/* Back button */}
+                <TouchableOpacity
+                  onPress={Actions.login}
+                  style={styles.headerBackButtonView}>
+                  <Image
+                    source={backIcon}
+                    style={styles.backButtonIcon}
+                    resizeMode="contain"
+                  />
+                </TouchableOpacity>
+
+              </View>
+
+              <View style={styles.headerTitleView}>
+                <Text style={styles.titleViewText}>Sign Up</Text>
+              </View>
+
+            </View>
+
+            <View style={styles.inputsContainer}>
+
+              <View style={styles.inputContainer}>
+                <View style={styles.iconContainer}>
+                  <Image
+                    source={personIcon}
+                    style={styles.inputIcon}
+                    resizeMode="contain"
+                  />
+                </View>
+
+                {/* First Name input text box */}
+                <TextInput
+                  style={[styles.input, styles.whiteFont]}
+                  placeholder="First Name"
+                  placeholderTextColor="#FFF"
+                  underlineColorAndroid='transparent'
+                  returnKeyType={"next"}
+                  returnKeyLabel={"Next"}
+                  onSubmitEditing={(event) => {
+                    this.refs.LastName.focus();
+                  }}
                 />
+              </View>
+
+              <View style={styles.inputContainer}>
+                <View style={styles.iconContainer}>
+                  <Image
+                    source={personIcon}
+                    style={styles.inputIcon}
+                    resizeMode="contain"
+                  />
+                </View>
+
+                {/* Last Name input text box */}
+                <TextInput
+                  ref='LastName'
+                  style={[styles.input, styles.whiteFont]}
+                  placeholder="Last Name"
+                  placeholderTextColor="#FFF"
+                  underlineColorAndroid='transparent'
+                  returnKeyType={"next"}
+                  returnKeyLabel={"Next"}
+                  onSubmitEditing={(event) => {
+                    this.refs.Email.focus();
+                  }}
+                />
+              </View>
+
+              <View style={styles.inputContainer}>
+                <View style={styles.iconContainer}>
+                  <Image
+                    source={emailIcon}
+                    style={styles.inputIcon}
+                    resizeMode="contain"
+                  />
+                </View>
+
+                {/* Email input text box */}
+                <TextInput
+                  ref="Email"
+                  style={[styles.input, styles.whiteFont]}
+                  placeholder="Email"
+                  placeholderTextColor="#FFF"
+                  underlineColorAndroid='transparent'
+                  keyboardType="email-address"
+                  returnKeyType={"next"}
+                  returnKeyLabel={"Next"}
+                  onSubmitEditing={(event) => {
+                    this.refs.Password.focus();
+                  }}
+                />
+              </View>
+
+              <View style={styles.inputContainer}>
+                <View style={styles.iconContainer}>
+                  <Image
+                    source={lockIcon}
+                    style={styles.inputIcon}
+                    resizeMode="contain"
+                  />
+                </View>
+
+                {/*Password input text box */}
+                <TextInput
+                  ref="Password"
+                  secureTextEntry={true}
+                  style={[styles.input, styles.whiteFont]}
+                  placeholder="Password"
+                  placeholderTextColor="#FFF"
+                  underlineColorAndroid='transparent'
+                  returnKeyType={"next"}
+                  returnKeyLabel={"Next"}
+                  onSubmitEditing={(event) => {
+                    this.refs.GradYear.focus();
+                  }}
+                />
+              </View>
+
+              <View style={styles.inputContainer}>
+                <View style={styles.iconContainer}>
+                  <Image
+                    source={birthdayIcon}
+                    style={styles.inputIcon}
+                    resizeMode="contain"
+                  />
+                </View>
+
+                {/* Graduation start date input text box */}
+                <TextInput
+                  ref="GradYear"
+                  style={[styles.input, styles.whiteFont]}
+                  placeholder="Graduation started on"
+                  placeholderTextColor="#FFF"
+                  underlineColorAndroid='transparent'
+                  keyboardType="phone-pad"
+                  maxLength={4}
+                  returnKeyType="done"
+                  returnKeyLabel={"Done"}
+                />
+              </View>
+
+            </View>
+
+            <View style={styles.footerContainer}>
+
+              {/* Sign up button */}
+              <TouchableOpacity>
+                <View style={styles.signup}>
+                  <Text style={styles.whiteFont}>Join</Text>
+                </View>
               </TouchableOpacity>
 
+              {/* Sign in button */}
+              <TouchableOpacity onPress={Actions.login}>
+                <View style={styles.signin}>
+                  <Text style={styles.greyFont}>Already have an account?<Text style={styles.whiteFont}> Sign In</Text></Text>
+                </View>
+              </TouchableOpacity>
             </View>
-
-            <View style={styles.headerTitleView}>
-              <Text style={styles.titleViewText}>Sign Up</Text>
-            </View>
-
-          </View>
-
-          <View style={styles.inputsContainer}>
-
-            <View style={styles.inputContainer}>
-              <View style={styles.iconContainer}>
-                <Image
-                  source={personIcon}
-                  style={styles.inputIcon}
-                  resizeMode="contain"
-                />
-              </View>
-
-              {/* First Name input text box */}
-              <TextInput
-                style={[styles.input, styles.whiteFont]}
-                placeholder="First Name"
-                placeholderTextColor="#FFF"
-                underlineColorAndroid='transparent'
-                returnKeyType={"next"}
-                returnKeyLabel={"Next"}
-                onSubmitEditing={(event) => {
-                  this.refs.LastName.focus();
-                }}
-              />
-            </View>
-
-            <View style={styles.inputContainer}>
-              <View style={styles.iconContainer}>
-                <Image
-                  source={personIcon}
-                  style={styles.inputIcon}
-                  resizeMode="contain"
-                />
-              </View>
-
-              {/* Last Name input text box */}
-              <TextInput
-                ref='LastName'
-                style={[styles.input, styles.whiteFont]}
-                placeholder="Last Name"
-                placeholderTextColor="#FFF"
-                underlineColorAndroid='transparent'
-                returnKeyType={"next"}
-                returnKeyLabel={"Next"}
-                onSubmitEditing={(event) => {
-                  this.refs.Email.focus();
-                }}
-              />
-            </View>
-
-            <View style={styles.inputContainer}>
-              <View style={styles.iconContainer}>
-                <Image
-                  source={emailIcon}
-                  style={styles.inputIcon}
-                  resizeMode="contain"
-                />
-              </View>
-
-              {/* Email input text box */}
-              <TextInput
-                ref="Email"
-                style={[styles.input, styles.whiteFont]}
-                placeholder="Email"
-                placeholderTextColor="#FFF"
-                underlineColorAndroid='transparent'
-                keyboardType="email-address"
-                returnKeyType={"next"}
-                returnKeyLabel={"Next"}
-                onSubmitEditing={(event) => {
-                  this.refs.Password.focus();
-                }}
-              />
-            </View>
-
-            <View style={styles.inputContainer}>
-              <View style={styles.iconContainer}>
-                <Image
-                  source={lockIcon}
-                  style={styles.inputIcon}
-                  resizeMode="contain"
-                />
-              </View>
-
-              {/*Password input text box */}
-              <TextInput
-                ref="Password"
-                secureTextEntry={true}
-                style={[styles.input, styles.whiteFont]}
-                placeholder="Password"
-                placeholderTextColor="#FFF"
-                underlineColorAndroid='transparent'
-                returnKeyType={"next"}
-                returnKeyLabel={"Next"}
-                onSubmitEditing={(event) => {
-                  this.refs.GradYear.focus();
-                }}
-              />
-            </View>
-
-            <View style={styles.inputContainer}>
-              <View style={styles.iconContainer}>
-                <Image
-                  source={birthdayIcon}
-                  style={styles.inputIcon}
-                  resizeMode="contain"
-                />
-              </View>
-
-              {/* Graduation start date input text box */}
-              <TextInput
-                ref="GradYear"
-                style={[styles.input, styles.whiteFont]}
-                placeholder="Graduation started on"
-                placeholderTextColor="#FFF"
-                underlineColorAndroid='transparent'
-                keyboardType="phone-pad"
-                maxLength={4}
-                returnKeyType="done"
-                returnKeyLabel={"Done"}
-              />
-            </View>
-
-          </View>
-
-          <View style={styles.footerContainer}>
-
-            {/* Sign up button */}
-            <TouchableOpacity>
-              <View style={styles.signup}>
-                <Text style={styles.whiteFont}>Join</Text>
-              </View>
-            </TouchableOpacity>
-
-            {/* Sign in button */}
-            <TouchableOpacity onPress={Actions.login}>
-              <View style={styles.signin}>
-                <Text style={styles.greyFont}>Already have an account?<Text style={styles.whiteFont}> Sign In</Text></Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </Image>
+          </Image>
+        </ScrollView>
       </View>
     );
   }
@@ -294,6 +301,7 @@ let styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',
+    marginBottom: 15
   },
   greyFont: {
     color: '#D8D8D8'
