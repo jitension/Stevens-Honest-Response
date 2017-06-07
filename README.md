@@ -8,4 +8,8 @@ To run this project:
 4- run "react-native run-android" command in cmd
 5- run "react-native start" (optional in case if you get an error message saying server responded with error msg 5000)
 
+<<<<<<< HEAD
 Enjoy!!
+=======
+Enjoy!!
+>>>>>>> origin/master
