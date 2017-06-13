@@ -9,9 +9,8 @@ import {
   TextInput,
   TouchableOpacity,
   Keyboard,
-  ScrollView
+  ScrollView,
 } from 'react-native'
-
 
 // Action is been used to navigate between the route components(screens)
 import { Actions } from 'react-native-router-flux'
@@ -45,8 +44,9 @@ export default class SignupScreen extends Component {
         <ScrollView
           showsVerticalScrollIndicator={true}
           automaticallyAdjustContentInsets={true}
-          keyboardDismissMode='interactive'
+          // keyboardDismissMode='interactive'
           keyboardShouldPersistTaps="always">
+
           <Image
             source={background}
             style={[styles.container, styles.bg]}
@@ -66,7 +66,6 @@ export default class SignupScreen extends Component {
                     resizeMode="contain"
                   />
                 </TouchableOpacity>
-
               </View>
 
               <View style={styles.headerTitleView}>
@@ -74,7 +73,6 @@ export default class SignupScreen extends Component {
               </View>
 
             </View>
-
             <View style={styles.inputsContainer}>
 
               <View style={styles.inputContainer}>
@@ -97,6 +95,7 @@ export default class SignupScreen extends Component {
                   onSubmitEditing={(event) => {
                     this.refs.LastName.focus();
                   }}
+                  blurOnSubmit={false}
                 />
               </View>
 
@@ -115,6 +114,7 @@ export default class SignupScreen extends Component {
                   style={[styles.input, styles.whiteFont]}
                   placeholder="Last Name"
                   placeholderTextColor="#FFF"
+                  blurOnSubmit={false}
                   underlineColorAndroid='transparent'
                   returnKeyType={"next"}
                   returnKeyLabel={"Next"}
@@ -141,6 +141,7 @@ export default class SignupScreen extends Component {
                   placeholderTextColor="#FFF"
                   underlineColorAndroid='transparent'
                   keyboardType="email-address"
+                  blurOnSubmit={false}
                   returnKeyType={"next"}
                   returnKeyLabel={"Next"}
                   onSubmitEditing={(event) => {
@@ -164,6 +165,7 @@ export default class SignupScreen extends Component {
                   secureTextEntry={true}
                   style={[styles.input, styles.whiteFont]}
                   placeholder="Password"
+                  blurOnSubmit={false}
                   placeholderTextColor="#FFF"
                   underlineColorAndroid='transparent'
                   returnKeyType={"next"}
@@ -196,7 +198,6 @@ export default class SignupScreen extends Component {
                   returnKeyLabel={"Done"}
                 />
               </View>
-
             </View>
 
             <View style={styles.footerContainer}>

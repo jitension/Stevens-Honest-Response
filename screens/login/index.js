@@ -9,7 +9,7 @@ import {
     TextInput,
     Button,
     TouchableOpacity,
-    Keyboard
+    Keyboard  
 } from 'react-native';
 
 // Action is been used to navigate between the route components(screens)
@@ -37,6 +37,8 @@ export default class LoginScreen extends Component {
         Keyboard.dismiss();
     }
 
+   
+
     // render HTML content 
     render() {
         return (
@@ -59,9 +61,15 @@ export default class LoginScreen extends Component {
                             <TextInput
                                 placeholder='Username'
                                 placeholderTextColor="#FFF"
+
+                                returnKeyType="next"
+                                returnKeyLabel="Next"
                                 style={styles.input}
                                 underlineColorAndroid='transparent'
-
+                                onSubmitEditing={(event) => {
+                                    this.refs.Password.focus();
+                                }}
+                                blurOnSubmit={false}
                             />
                         </View>
                         <View style={styles.inputWrap}>
@@ -71,8 +79,11 @@ export default class LoginScreen extends Component {
 
                             {/* Password  input text box */}
                             <TextInput
+                                ref='Password'
                                 placeholderTextColor="#FFF"
                                 placeholder="Password"
+                                returnKeyType="done"
+                                returnKeyLabel={"Done"}
                                 style={styles.input}
                                 underlineColorAndroid='transparent'
                                 secureTextEntry

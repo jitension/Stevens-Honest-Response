@@ -2431,7 +2431,7 @@ longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
 
-loose-envify@^1.0.0, loose-envify@^1.1.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
   dependencies:
@@ -2873,6 +2873,13 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
+prop-types@^15.5.10, prop-types@^15.5.6:
+  version "15.5.10"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
+  dependencies:
+    fbjs "^0.8.9"
+    loose-envify "^1.3.1"
+
 prr@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/prr/-/prr-0.0.0.tgz#1a84b85908325501411853d0081ee3fa86e2926a"
@@ -2931,22 +2938,23 @@ react-devtools-core@^2.0.8:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
-react-native-experimental-navigation@0.27.x:
-  version "0.27.0"
-  resolved "https://registry.yarnpkg.com/react-native-experimental-navigation/-/react-native-experimental-navigation-0.27.0.tgz#1b20ad95b9f7187d4f1735708a5c1080693a94f1"
+react-native-experimental-navigation@0.28.x:
+  version "0.28.0"
+  resolved "https://registry.yarnpkg.com/react-native-experimental-navigation/-/react-native-experimental-navigation-0.28.0.tgz#561298190320cd336dc5b00c2e8bc2435cfb4909"
   dependencies:
     babel-plugin-syntax-flow "^6.8.0"
     babel-plugin-transform-flow-strip-types "^6.8.0"
     babel-preset-react-native "^1.9.0"
     clamp "^1.0.1"
     fbjs "^0.8.1"
+    prop-types "^15.5.10"
 
-react-native-router-flux@^3.39.2:
-  version "3.39.2"
-  resolved "https://registry.yarnpkg.com/react-native-router-flux/-/react-native-router-flux-3.39.2.tgz#f5373136440e627dfc39edc61cb4bf54581245e0"
+react-native-router-flux@^3.40.0:
+  version "3.40.0"
+  resolved "https://registry.yarnpkg.com/react-native-router-flux/-/react-native-router-flux-3.40.0.tgz#84d511b482d03bb067aee10b00f4b68c37a7d048"
   dependencies:
     lodash.isequal "^4.5.0"
-    react-native-experimental-navigation "0.27.x"
+    react-native-experimental-navigation "0.28.x"
     react-native-tabs "^1.0.9"
     react-static-container "1.0.1"
 
@@ -3069,13 +3077,14 @@ react-transform-hmr@^1.0.4:
     global "^4.3.0"
     react-proxy "^1.1.7"
 
-react@16.0.0-alpha.6:
-  version "16.0.0-alpha.6"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.0.0-alpha.6.tgz#2ccb1afb4425ccc12f78a123a666f2e4c141adb9"
+react@^16.0.0-alpha.6:
+  version "16.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.0.0-alpha.13.tgz#de37e035b06283a15cfb916c6943b9b066b25de0"
   dependencies:
     fbjs "^0.8.9"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+    prop-types "^15.5.6"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
