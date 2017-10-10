@@ -1,5 +1,5 @@
 # Stevens-Honest-Response
-React-Native mobile application for stevens course reviews
+React-Native mobile application for course reviews
 
 To run this project:
 1- clone the master repo
